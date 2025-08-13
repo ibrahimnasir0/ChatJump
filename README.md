@@ -24,7 +24,7 @@ It automatically creates a clickable index of all your prompts in **ChatGPT**, *
 
 1. **Download** or **clone** this repository:
    ```bash
-   git clone https://github.com/yourusername/chatjump.git
+   git clone https://github.com/ibrahimnasir0/chatjump.git
 Open Chrome and go to:
 chrome://extensions/
 
