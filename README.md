@@ -20,26 +20,45 @@ It automatically creates a clickable index of all your prompts in **ChatGPT**, *
 
 ---
 
-## 🛠 Installation (Developer Mode)
+🛠 Installation (Developer Mode)
+Follow these steps to load ChatJump into Chrome:
 
-1. **Download** or **clone** this repository:
-   ```bash
-   git clone https://github.com/ibrahimnasir0/chatjump.git
-Open Chrome and go to:
+1️⃣ Download the extension files
+Click the green Code button on this page and select Download ZIP,
+or clone the repo:
+
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/chatjump.git
+Unzip the folder if you downloaded the ZIP.
+
+2️⃣ Open Chrome Extensions Page
+In Chrome, type this in the address bar and hit Enter:
+
+arduino
+Copy
+Edit
 chrome://extensions/
+3️⃣ Enable Developer Mode
+Look at the top right corner of the Extensions page
 
-Enable Developer Mode (top right)
+Toggle Developer mode to ON ✅
 
-Click "Load unpacked" and select the folder where this repo is located
+4️⃣ Load the Extension
+Click Load unpacked (top left)
 
-Open ChatGPT, Claude, or Gemini and see ChatJump in action 🚀
+Browse to the folder where ChatJump’s files are located
+
+Select the folder and click Open
+
+5️⃣ Done! Test it out
+Go to ChatGPT, Claude, or Gemini
 
 📌 Usage
-Open a conversation in ChatGPT, Claude, or Gemini
+Open any conversation — ChatJump’s sidebar should appear automatically
 
-A sidebar will appear on the right with all your prompts
-
-Click any prompt → instantly jump to that message
+Click on any prompt in the sidebar to jump straight to its answer 🚀
 
 📄 License
 MIT License. Feel free to modify and share.
