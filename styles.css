@@ -1,0 +1,535 @@
+/* Enhanced Smart Index Sidebar Styles for ChatGPT, Claude & Gemini */
+#smart-index-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 100vh;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-left: 1px solid rgba(226, 232, 240, 0.8);
+  z-index: 10000;
+  transform: translateX(100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12), -2px 0 8px rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, system-ui, sans-serif;
+  backdrop-filter: blur(10px);
+}
+
+#smart-index-sidebar.visible {
+  transform: translateX(0);
+}
+
+.smart-index-header {
+  padding: 20px 24px 16px 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+}
+
+.smart-index-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: -0.025em;
+}
+
+.smart-index-header-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.smart-index-refresh,
+.smart-index-close {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  color: #64748b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.smart-index-refresh:hover,
+.smart-index-close:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.smart-index-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.smart-index-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.smart-index-toggle:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Enhanced Platform-specific styling */
+
+/* Claude-specific styling - Vibrant Orange */
+body[data-platform="claude"] .smart-index-toggle {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body[data-platform="claude"] .smart-index-toggle:hover {
+  box-shadow: 0 12px 35px rgba(255, 107, 53, 0.5), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+body[data-platform="claude"] .smart-index-title {
+  color: #ea580c;
+  background: linear-gradient(135deg, #ff6b35, #ea580c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body[data-platform="claude"] .smart-index-header {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* ChatGPT-specific styling - Modern Green */
+body[data-platform="chatgpt"] .smart-index-toggle {
+  background: linear-gradient(135deg, #10a37f 0%, #059669 100%);
+  box-shadow: 0 8px 25px rgba(16, 163, 127, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body[data-platform="chatgpt"] .smart-index-toggle:hover {
+  box-shadow: 0 12px 35px rgba(16, 163, 127, 0.5), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+body[data-platform="chatgpt"] .smart-index-title {
+  color: #059669;
+  background: linear-gradient(135deg, #10a37f, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body[data-platform="chatgpt"] .smart-index-header {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-bottom: 1px solid rgba(16, 163, 127, 0.2);
+}
+
+/* Gemini-specific styling - Enhanced Blue */
+body[data-platform="gemini"] .smart-index-toggle {
+  background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
+  box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body[data-platform="gemini"] .smart-index-toggle:hover {
+  box-shadow: 0 12px 35px rgba(66, 133, 244, 0.5), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+body[data-platform="gemini"] .smart-index-title {
+  color: #1967d2;
+  background: linear-gradient(135deg, #4285f4, #1a73e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body[data-platform="gemini"] .smart-index-header {
+  background: linear-gradient(135deg, #f8faff 0%, #e3f2fd 100%);
+  border-bottom: 1px solid rgba(66, 133, 244, 0.2);
+}
+
+/* Button position adjustment when sidebar is visible */
+body.smart-index-active .smart-index-toggle {
+  right: 328px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smart-index-content {
+  padding: 8px 0;
+  height: calc(100vh - 85px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.smart-index-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.smart-index-item {
+  margin: 4px 12px;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.smart-index-item:hover {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.smart-index-link {
+  display: block;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+}
+
+.smart-index-link:hover {
+  color: #1e293b;
+}
+
+/* Enhanced active link styling */
+.smart-index-link.active {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  color: #4c63d2;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
+  transform: translateX(8px);
+}
+
+/* Platform-specific active link styling */
+body[data-platform="chatgpt"] .smart-index-link.active {
+  background: linear-gradient(135deg, rgba(16, 163, 127, 0.12) 0%, rgba(5, 150, 105, 0.08) 100%);
+  color: #059669;
+  border-left: 4px solid #10a37f;
+  box-shadow: 0 4px 20px rgba(16, 163, 127, 0.25);
+}
+
+body[data-platform="claude"] .smart-index-link.active {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.12) 0%, rgba(234, 88, 12, 0.08) 100%);
+  color: #ea580c;
+  border-left: 4px solid #ff6b35;
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.25);
+}
+
+body[data-platform="gemini"] .smart-index-link.active {
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.12) 0%, rgba(26, 115, 232, 0.08) 100%);
+  color: #1967d2;
+  border-left: 4px solid #4285f4;
+  box-shadow: 0 4px 20px rgba(66, 133, 244, 0.25);
+}
+
+.smart-index-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  margin-right: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Platform-specific number styling */
+body[data-platform="chatgpt"] .smart-index-number {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  color: #059669;
+}
+
+body[data-platform="claude"] .smart-index-number {
+  background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+  color: #ea580c;
+}
+
+body[data-platform="gemini"] .smart-index-number {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  color: #1967d2;
+}
+
+.smart-index-link.active .smart-index-number {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.smart-index-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 6px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.smart-index-text-full {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 3;
+  line-height: 1.4;
+}
+
+.smart-index-empty {
+  padding: 60px 24px;
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.smart-index-empty::before {
+  content: "📋";
+  display: block;
+  font-size: 32px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+/* Enhanced scrollbar styling */
+.smart-index-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.smart-index-content::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.smart-index-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.smart-index-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+
+/* Platform-specific scrollbar colors */
+body[data-platform="chatgpt"] .smart-index-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #10a37f 0%, #059669 100%);
+}
+
+body[data-platform="claude"] .smart-index-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff6b35 0%, #ea580c 100%);
+}
+
+body[data-platform="gemini"] .smart-index-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4285f4 0%, #1967d2 100%);
+}
+
+/* Enhanced message highlighting */
+.smart-index-highlighted {
+  background: linear-gradient(135deg, rgba(255, 243, 205, 0.9) 0%, rgba(254, 240, 138, 0.7) 100%) !important;
+  border: 2px solid #f59e0b !important;
+  border-radius: 12px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3) !important;
+  animation: highlightPulse 0.6s ease-out;
+}
+
+@keyframes highlightPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Platform-specific highlighting */
+body[data-platform="claude"] .smart-index-highlighted {
+  background: linear-gradient(135deg, rgba(255, 241, 235, 0.95) 0%, rgba(254, 215, 170, 0.8) 100%) !important;
+  border: 2px solid #ff6b35 !important;
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3) !important;
+}
+
+body[data-platform="chatgpt"] .smart-index-highlighted {
+  background: linear-gradient(135deg, rgba(240, 253, 244, 0.95) 0%, rgba(187, 247, 208, 0.8) 100%) !important;
+  border: 2px solid #10a37f !important;
+  box-shadow: 0 8px 25px rgba(16, 163, 127, 0.3) !important;
+}
+
+body[data-platform="gemini"] .smart-index-highlighted {
+  background: linear-gradient(135deg, rgba(219, 234, 254, 0.95) 0%, rgba(191, 219, 254, 0.8) 100%) !important;
+  border: 2px solid #4285f4 !important;
+  box-shadow: 0 8px 25px rgba(66, 133, 244, 0.3) !important;
+}
+
+/* Adjust main content when sidebar is visible */
+body.smart-index-active {
+  margin-right: 340px;
+  transition: margin-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced platform-specific button hover effects */
+body[data-platform="chatgpt"] .smart-index-refresh:hover,
+body[data-platform="chatgpt"] .smart-index-close:hover {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  color: #10a37f;
+  border-color: rgba(16, 163, 127, 0.3);
+}
+
+body[data-platform="claude"] .smart-index-refresh:hover,
+body[data-platform="claude"] .smart-index-close:hover {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+body[data-platform="gemini"] .smart-index-refresh:hover,
+body[data-platform="gemini"] .smart-index-close:hover {
+  background: linear-gradient(135deg, #f8faff 0%, #e3f2fd 100%);
+  color: #4285f4;
+  border-color: rgba(66, 133, 244, 0.3);
+}
+
+/* Responsive enhancements */
+@media (max-width: 1200px) {
+  #smart-index-sidebar {
+    width: 300px;
+  }
+  
+  body.smart-index-active {
+    margin-right: 300px;
+  }
+  
+  body.smart-index-active .smart-index-toggle {
+    right: 288px;
+  }
+}
+
+@media (max-width: 768px) {
+  #smart-index-sidebar {
+    width: 100vw;
+    border-left: none;
+    box-shadow: none;
+  }
+  
+  body.smart-index-active {
+    margin-right: 0;
+  }
+  
+  body.smart-index-active .smart-index-toggle {
+    right: 24px;
+  }
+  
+  .smart-index-toggle {
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    border-radius: 14px;
+  }
+  
+  .smart-index-header {
+    padding: 16px 20px 12px 20px;
+  }
+  
+  .smart-index-title {
+    font-size: 16px;
+  }
+}
+
+/* Focus accessibility improvements */
+.smart-index-toggle:focus,
+.smart-index-link:focus,
+.smart-index-close:focus,
+.smart-index-refresh:focus {
+  outline: 2px solid #4285f4;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.2);
+}
+
+/* Loading state for refresh button */
+.smart-index-refresh.loading {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  #smart-index-sidebar {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border-left: 1px solid rgba(51, 65, 85, 0.8);
+  }
+  
+  .smart-index-header {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+  }
+  
+  .smart-index-title {
+    color: #f1f5f9;
+  }
+  
+  .smart-index-link {
+    color: #cbd5e1;
+  }
+  
+  .smart-index-link:hover {
+    color: #f1f5f9;
+  }
+  
+  .smart-index-item:hover {
+    background: linear-gradient(135deg, #334155 0%, #475569 100%);
+  }
+  
+  .smart-index-number {
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
+    color: #cbd5e1;
+  }
+  
+  .smart-index-empty {
+    color: #64748b;
+  }
+  
+  .smart-index-refresh,
+  .smart-index-close {
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(51, 65, 85, 0.8);
+    color: #cbd5e1;
+  }
+}
