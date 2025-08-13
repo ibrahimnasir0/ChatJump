@@ -30,7 +30,7 @@ or clone the repo:
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/chatjump.git
+git clone https://github.com/ibrahimnasir0/chatjump.git
 Unzip the folder if you downloaded the ZIP.
 
 2️⃣ Open Chrome Extensions Page
