@@ -16,7 +16,7 @@ It automatically creates a clickable index of all your prompts in **ChatGPT**, *
 
 ## 📸 Demo
 
-*(Insert your demo GIF or link to your video here)*
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7361303397238468608?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
 
 ---
 
